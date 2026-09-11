@@ -1,0 +1,39 @@
+body {
+    max-width: 1200px;
+    margin-inline: auto;
+}
+
+.main__h1 {
+    font-size: 3rem;
+    margin-block: 1rem;
+}
+
+.apartments__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+}
+
+.list__item {
+    max-width: 1fr;
+}
+
+.list__item__figure {
+    height: 16rem;
+    object-fit: cover;
+}
+
+.list__item__figure img {
+    height: inherit;
+    object-fit: cover;
+}
+
+.list__item__div {
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 1rem 2rem;
+    padding-block: 1.5rem;
+    background-color: #CEF9FF;
+}

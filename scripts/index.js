@@ -14,16 +14,28 @@ async function fetchData() {
             throw new Error("Fetch failed!")
         }
 
-        result.destinations.forEach(destination => {
+        createListItem(result.destinations)
+
+    } catch (error) {
+        alert(error)
+    }
+}
+
+
+function createListItem(destinations) {
+    destinations.forEach(destination => {
             const listItem = document.createElement("li")
+            listItem.classList.add("list__item")
 
             const itemFigure = document.createElement("figure")
+            itemFigure.classList.add("list__item__figure")
 
             const figureImage = document.createElement("img")
             figureImage.setAttribute("src", `img/${destination.image}`)
             itemFigure.append(figureImage)
 
             const itemDiv = document.createElement("div")
+            itemDiv.classList.add("list__item__div")
 
             const itemFavourite = document.createElement("img") // skal ændres til button da vi skal kunne favourite forskellige destinations, men det er en ekstra opgave...
             itemFavourite.setAttribute("src", "img/icons/notfavourite.svg")
@@ -36,13 +48,8 @@ async function fetchData() {
 
             listItem.append(itemFigure, itemDiv)
             apartmentsList.append(listItem)
-        });
-
-    } catch (error) {
-        alert(error)
-    }
+        })
 }
-
 
 fetchData()
         // const listItem = document.createElement("li")

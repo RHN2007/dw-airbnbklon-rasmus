@@ -3,17 +3,20 @@ body {
     margin-inline: auto;
 }
 
+/* main */
 .main__h1 {
     font-size: 3rem;
     margin-block: 1rem;
 }
 
+/* apartments liste */
 .apartments__list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 1rem;
 }
 
+/* aparentments liste items */
 .list__item {
     max-width: 1fr;
 }

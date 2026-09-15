@@ -92,12 +92,12 @@ function createDestinationPreview (data) {
         </button>
     </div>
 
-    <div>
-        <span class="destionation__place">${data.destination}</span>
-        <h1 class="data__title">${data.title}</h1>
-        <h2 class="data__subtitle">${data.subtitle}</h2>
-        <p class="data__text">${data.text}</p>
-        <ul class="facilities__list"></ul>
+    <div class="destionation__info">
+        <span class="info__place">${data.destination}</span>
+        <h1 class="info__title">${data.title}</h1>
+        <h2 class="info__subtitle">${data.subtitle}</h2>
+        <p class="info__text">${data.text}</p>
+        <ul class="info__list"></ul>
     </div>
     `
 

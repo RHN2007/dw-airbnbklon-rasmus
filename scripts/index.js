@@ -1,4 +1,5 @@
 const apartmentsList = document.querySelector(".apartments__list")
+const destinationElement = document.querySelector(".destionation__article")
 const url = window.location.href
 const params = new URL(url).searchParams
 const destinationID = params.get("id")
@@ -63,7 +64,53 @@ function createListItem(destinations) {
 }
 
 function createDestinationPreview (data) {
-    console.log(data)
+    // console.log(data.image)
+
+    // const divElement = document.createElement("div")
+    // divElement.classList.add("destionation__image")
+    // divElement.style.backgroundImage = `url("img/${data.image}")`
+    
+    // const favouriteButton = document.createElement("button")
+    // favouriteButton.classList.add("destination__favourite__button")
+    // const favouriteImg = document.createElement("img")
+    // favouriteImg.setAttribute("src", "img/icons/notfavourite.svg")
+
+    // const favouriteText = document.createElement("p")
+    // favouriteText.textContent = "Favorit"
+
+    // favouriteButton.append(favouriteImg, favouriteText)
+    // divElement.append(favouriteButton)
+    // destinationElement.append(divElement)
+
+    // const divElement2 = document.createElement("div")
+    destinationElement.innerHTML += 
+    `
+    <div class="destionation__image" style="background-image: url('img/${data.image}'); ">
+        <button class="destination__favourite__button">
+            <img src="img/icons/notfavourite.svg">
+            Favourit
+        </button>
+    </div>
+
+    <div>
+        <span class="destionation__place">${data.destination}</span>
+        <h1 class="data__title">${data.title}</h1>
+        <h2 class="data__subtitle">${data.subtitle}</h2>
+        <p class="data__text">${data.text}</p>
+        <ul class="facilities__list"></ul>
+    </div>
+    `
+
+    console.log(data.facilities)
+    data.facilities.forEach(element => {
+        let list = document.querySelector(".facilities__list")
+        list.innerHTML += 
+        `
+        <li class="facilities__list__item">
+            <p>${element}</p>
+        </li>
+        `
+    });
 }
 
 fetchData()

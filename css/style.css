@@ -1,7 +1,8 @@
-body {
+.index__body {
     max-width: 1200px;
     margin-inline: auto;
 }
+
 
 /* main */
 .main__h1 {
@@ -39,4 +40,35 @@ body {
     padding-inline: 1rem 2rem;
     padding-block: 1.5rem;
     background-color: #CEF9FF;
+}
+
+/* destination page */
+
+.destination__body {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+}
+
+.destionation__article {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+.destionation__image {
+    width: 100%;
+    height: 50rem;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.destination__favourite__button {
+    font-size: 1.5rem;
+    font-weight: bold;
+    gap: 1rem;
+    display: flex;
+    margin-inline-start: auto;
+    padding: 1rem;
 }

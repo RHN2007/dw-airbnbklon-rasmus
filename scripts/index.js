@@ -103,7 +103,7 @@ function createDestinationPreview (data) {
 
     console.log(data.facilities)
     data.facilities.forEach(element => {
-        let list = document.querySelector(".facilities__list")
+        let list = document.querySelector(".info__list")
         list.innerHTML += 
         `
         <li class="facilities__list__item">

@@ -73,7 +73,7 @@ function createDestinationPreview (data) {
     <div class="destionation__image" style="background-image: url('img/${data.image}'); ">
         <button class="destination__favourite__button">
             <img src="img/icons/notfavourite.svg">
-            Favourit
+            Favorit
         </button>
     </div>
 

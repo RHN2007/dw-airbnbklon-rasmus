@@ -1,5 +1,5 @@
 const apartmentsList = document.querySelector(".apartments__list")
-const destinationElement = document.querySelector(".destionation__article")
+const destinationElement = document.querySelector(".destination__article")
 const url = window.location.href
 const params = new URL(url).searchParams
 const destinationID = params.get("id")
@@ -70,14 +70,14 @@ function createListItem(destinations) {
 function createDestinationPreview (data) {
     destinationElement.innerHTML += 
     `
-    <div class="destionation__image" style="background-image: url('img/${data.image}'); ">
+    <div class="destination" style="background-image: url('img/${data.image}'); ">
         <button class="destination__favourite__button">
             <img src="img/icons/notfavourite.svg">
             Favorit
         </button>
     </div>
 
-    <div class="destionation__info">
+    <div class="destination__info">
         <span class="info__place">${data.destination}</span>
         <h1 class="info__title">${data.title}</h1>
         <h2 class="info__subtitle">${data.subtitle}</h2>
@@ -88,6 +88,7 @@ function createDestinationPreview (data) {
     `
 
     console.log(data.facilities)
+    
     data.facilities.forEach(element => {
         let list = document.querySelector(".info__list")
         list.innerHTML += 
@@ -99,4 +100,7 @@ function createDestinationPreview (data) {
     });
 }
 
+
 fetchData()
+
+console.log(document.querySelector(".destination__favourite__button"))

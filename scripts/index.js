@@ -6,6 +6,7 @@ const destinationID = params.get("id")
 
 async function fetchData() {
     try {
+
         let isProductPage = false
         let response = ""
 
@@ -16,17 +17,20 @@ async function fetchData() {
             response = await fetch("./data/destinations.json")
         }
         
+
         let result = await response.json()
 
         if (!response.ok) {
             throw new Error("Fetch failed!")
         }
 
+
         if (isProductPage == false) {
             createListItem(result.destinations)
         } else {
             createDestinationPreview(result)
         }
+
 
     } catch (error) {
         alert(error)
@@ -64,25 +68,6 @@ function createListItem(destinations) {
 }
 
 function createDestinationPreview (data) {
-    // console.log(data.image)
-
-    // const divElement = document.createElement("div")
-    // divElement.classList.add("destionation__image")
-    // divElement.style.backgroundImage = `url("img/${data.image}")`
-    
-    // const favouriteButton = document.createElement("button")
-    // favouriteButton.classList.add("destination__favourite__button")
-    // const favouriteImg = document.createElement("img")
-    // favouriteImg.setAttribute("src", "img/icons/notfavourite.svg")
-
-    // const favouriteText = document.createElement("p")
-    // favouriteText.textContent = "Favorit"
-
-    // favouriteButton.append(favouriteImg, favouriteText)
-    // divElement.append(favouriteButton)
-    // destinationElement.append(divElement)
-
-    // const divElement2 = document.createElement("div")
     destinationElement.innerHTML += 
     `
     <div class="destionation__image" style="background-image: url('img/${data.image}'); ">
@@ -97,6 +82,7 @@ function createDestinationPreview (data) {
         <h1 class="info__title">${data.title}</h1>
         <h2 class="info__subtitle">${data.subtitle}</h2>
         <p class="info__text">${data.text}</p>
+        <h3 class="info__list__header">Faciliteter<h3>
         <ul class="info__list"></ul>
     </div>
     `

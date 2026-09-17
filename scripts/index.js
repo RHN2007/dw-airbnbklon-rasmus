@@ -16,7 +16,7 @@ async function fetchData() {
         } else {
             response = await fetch("./data/destinations.json")
         }
-        
+
 
         let result = await response.json()
 
@@ -53,8 +53,15 @@ function createListItem(destinations) {
         const itemDiv = document.createElement("div")
         itemDiv.classList.add("list__item__div")
 
-        const itemFavourite = document.createElement("img") // skal ændres til button da vi skal kunne favourite forskellige destinations, men det er en ekstra opgave...
+        const itemFavourite = document.createElement("img") // skal ændres til button da vi skal kunne favourite forskellige destinations
         itemFavourite.setAttribute("src", "img/icons/notfavourite.svg")
+        itemFavourite.addEventListener("click", (event) => {
+            if (itemFavourite.getAttribute("src") == "img/icons/notfavourite.svg") {
+                itemFavourite.setAttribute("src", "img/icons/favourite.svg")
+            } else {
+                itemFavourite.setAttribute("src", "img/icons/notfavourite.svg")
+            }
+        })
 
         const itemLink = document.createElement("a")
         itemLink.textContent = "More"
@@ -67,9 +74,9 @@ function createListItem(destinations) {
     })
 }
 
-function createDestinationPreview (data) {
-    destinationElement.innerHTML += 
-    `
+function createDestinationPreview(data) {
+    destinationElement.innerHTML +=
+        `
     <div class="destination" style="background-image: url('img/${data.image}'); ">
         <button class="destination__favourite__button">
             <img src="img/icons/notfavourite.svg">
@@ -86,13 +93,13 @@ function createDestinationPreview (data) {
         <ul class="info__list"></ul>
     </div>
     `
+    let favouriteButton = document.querySelector(".destination__favourite__button")
+    favouriteFunctionality(favouriteButton)
 
-    console.log(data.facilities)
-    
     data.facilities.forEach(element => {
         let list = document.querySelector(".info__list")
-        list.innerHTML += 
-        `
+        list.innerHTML +=
+            `
         <li class="facilities__list__item">
             <p>${element}</p>
         </li>
@@ -100,7 +107,10 @@ function createDestinationPreview (data) {
     });
 }
 
+function favouriteFunctionality(button) { // skal lave funktionaliteten til at knappen aktuelt virker
+    button.addEventListener("click", (event) => {
+        button.classList.add("favourited")
+    })
+}
 
 fetchData()
-
-console.log(document.querySelector(".destination__favourite__button"))

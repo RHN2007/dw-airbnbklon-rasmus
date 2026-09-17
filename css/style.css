@@ -117,3 +117,12 @@
     font-weight: 400;
     font-size: 1rem;
 }
+
+/* Favourite functionality */
+.favourited {
+    color: red;
+}
+
+.favourited img {
+    color: red;
+}
